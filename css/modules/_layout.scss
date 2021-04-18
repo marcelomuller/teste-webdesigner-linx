@@ -1,0 +1,298 @@
+
+@mixin task {
+    width: 16rem;
+    height: 25rem;
+    background-color: white;
+    border-radius: 14px;
+    border: 1px solid black;
+    margin: 10px;
+
+    @include mobile() {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+        width: 25rem;
+        height: 16rem;
+        display: flex;
+    }
+}
+
+@mixin imgClip {
+    img {
+        transform: translateY(15px);
+        clip-path: inset(0 115px 15px 15px);
+
+        @include mobile() {
+            clip-path: none;
+            transform: translateY(38px) scaleY(1.27);
+            clip-path: inset(0 160px 0 15px);
+        }
+    }
+}
+
+.imgbox {
+    @include mobile() {
+        max-width: 50%;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin: 0 auto;
+
+    @include mobile() {
+        width: 95%;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+        
+    }
+}
+
+.bar {
+    border: 1px solid red;
+    display: flex;
+    padding: 2rem;
+    background: $orange;
+    border-radius: 8px;
+    width: 100%;
+
+    @include barAdjust() {
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.searchbox {
+    border: 1px solid red;
+    @include flexCenter;
+    width: 100%;
+
+    input {
+        width: 20rem;
+        height: 2.5rem;
+        padding: 1rem;
+        background: white;
+        border: none;
+        border-radius: 6px;
+        margin-right: 35px;
+        font-size: 12px;
+        
+        @include barAdjust() {
+            margin: 0 6rem 0 16px;
+        }
+    }
+
+    button {
+        width: 4.5rem;
+        height: 2.5rem;
+        background: $purple-light;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+
+        position: absolute;
+        transform: translate3d(120px, 0, 0);
+        
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include mobile() {
+            transform: translate3d(85px, 0, 0);
+
+        }
+    }
+
+    @include barAdjust() {
+        margin: 0 0 30px 20px;
+    }
+}
+
+
+
+.sortbox {
+    border: 1px solid red;
+    @include flexCenter;
+    width: 100%;
+
+    p {
+        width: 7.5rem;
+        color: white;
+        margin-right: 5px;
+    }
+
+    .dropmenu {
+        background: white;
+        width: 13rem;
+        height: 2.5rem;
+        padding-left: 1rem;
+        border: none;
+        border-radius: 6px;
+        font-size: 12px;
+        cursor: pointer;
+        position: relative;
+    }
+    
+}
+
+
+.tasklist {
+    width: 120%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
+    column-gap: 2px;
+    row-gap: 0;
+    justify-content: center;
+    
+    @include mobile() {
+        width: 55%;
+        grid-template-columns: repeat(auto-fit, minmax(25rem, auto));
+    }
+}
+
+.task-info {
+    @include mobile() {
+        margin-top: 20px;
+    }
+}
+
+.task-1 {
+    position: relative;
+
+    @include task();
+
+    @include imgClip();
+
+    .postit {
+        @include flexCenter;
+        position: absolute;
+
+        font-weight: bold;
+        font-size: 13px;
+        color: white;
+        background-color: $purple;
+
+        width: 40%;
+        height: 32px;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        transform: translate3d(-10px, -160px, 0);
+
+        @include mobile() {
+            width: 25%;
+        }
+    }
+}
+
+.task-2 {
+    @include task();
+
+    @include imgClip();
+
+    .task-text {
+        @include mobile() {
+            margin-top: 18px;
+        }
+
+        div {
+            margin-top: 30px;
+            
+            @include mobile() {
+                margin-top: 12px;
+            }
+        }
+
+    }
+
+    .task-btn {
+        @include mobile() {
+            margin-top: 0;
+        }
+    }
+}
+
+.task-3 {
+    @include task();
+
+    @include imgClip();
+
+}
+
+.task-4 {
+    @include task();
+
+    @include imgClip();
+
+    .task-text {
+        @include mobile() {
+            margin-top: 18px;
+        }
+    }
+
+    .task-btn {
+        @include mobile() {
+            margin-top: 0;
+        }
+    }
+}
+
+.task-text {
+    width: 95%;
+    height: 112px;
+    margin-left: 14px;
+
+    h3 {
+        font-size: 16px;
+        color: $grey;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    div {
+        margin-top: 12px;
+        font-weight: bold;
+        font-size: 13px;
+
+        span {
+            color: $orange-dark;
+            font-size: 19px;
+        }
+    }
+}
+
+.task-btn {
+    display: inline-block;
+    width: 89%;
+    padding: 0.47rem;
+    border: 1px solid black;
+    background-color: white;
+    margin-left: 14px;
+    margin-top: 12px;
+    border-radius: 3px;
+    font-size: 17px;
+    font-weight: bold;
+
+    &:hover {
+        background-color: $purple;
+        color: white;
+        cursor: pointer;
+        transition: all .30s;
+    }
+
+    @include mobile() {
+        margin-top: 36px;
+    }
+}
+
+.date {
+    margin: 14px 0 0 14px;
+    font-size: 12px;
+    color: $grey;
+
+    @include mobile() {
+        margin: 8px 0 0 14px;
+    }
+}

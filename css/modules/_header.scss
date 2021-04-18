@@ -1,0 +1,27 @@
+.header {
+    width: 100%;
+    padding: 9%;
+
+    background-color: $purple;
+    overflow: hidden;
+    
+    @include flexCenter;
+    flex-direction: column;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 0 85%);
+
+}
+
+.header-title {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 48px;
+    color: white;
+
+}
+
+.header-text {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: white;
+}
