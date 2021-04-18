@@ -1,6 +1,3 @@
-# teste-webdesigner-linx
-Teste para Linx Impulse.
-
 ## Teste para estágio na Linx Impulse.
 
 Minhas maiores dificuldades com o teste foram aprender conceitos novos do CSS e respeitar a responsividade. Já era tarde quando pensei em recomeçar e fazer mobile first.
